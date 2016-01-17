@@ -2,7 +2,7 @@
 #include <PID_AutoTune_v0.h>
 
 
-void Setup_PID_ATune(float* Input, float* Output)
+void Setup_PID_ATune(double* Input, double* Output)
 {
 	input = Input;
 	output = Output;
@@ -35,7 +35,7 @@ int Runtime()
 
 	if((now-lastTimeAtune)<sampleTime) return false;
 	lastTimeAtune = now;
-	float refVal = *input;
+	double refVal = *input;
 	justevaled=true;
 	if(!running)
 	{ //initialize working variables the first time around
@@ -54,19 +54,19 @@ int Runtime()
 		if(refVal>absMax)absMax=refVal;
 		if(refVal<absMin)absMin=refVal;
 	}
-
+	
 	//oscillate the output base on the input's relation to the setpoint
-
+	
 	if(refVal>setpoint+noiseBand) *output = outputStart-oStep;
 	else if (refVal<setpoint-noiseBand) *output = outputStart+oStep;
-
-
+	
+	
   //bool isMax=true, isMin=true;
   isMax=true;isMin=true;
   //id peaks
   for(int i=nLookBack-1;i>=0;i--)
   {
-    float val = lastInputs[i];
+    double val = lastInputs[i];
     if(isMax) isMax = refVal>val;
     if(isMin) isMin = refVal<val;
     lastInputs[i+1] = lastInputs[i];
@@ -105,7 +105,7 @@ int Runtime()
 
   if(justchanged && peakCount>2)
   { //we've transitioned.  check if we can autotune based on the last peaks
-    float avgSeparation = (abs(peaks[peakCount-1]-peaks[peakCount-2])+abs(peaks[peakCount-2]-peaks[peakCount-3]))/2;
+    double avgSeparation = (abs(peaks[peakCount-1]-peaks[peakCount-2])+abs(peaks[peakCount-2]-peaks[peakCount-3]))/2;
     if( avgSeparation < 0.05*(absMax-absMin))
     {
 		FinishUp();
@@ -125,27 +125,27 @@ void FinishUp()
       Pu = (float)(peak1-peak2) / 1000;
 }
 
-float PID_ATune_GetKp()
+double PID_ATune_GetKp()
 {
 	return controlType==1 ? 0.6 * Ku : 0.4 * Ku;
 }
 
-float PID_ATune_GetKi()
+double PID_ATune_GetKi()
 {
 	return controlType==1? 1.2*Ku / Pu : 0.48 * Ku / Pu;  // Ki = Kc/Ti
 }
 
-float PID_ATune_GetKd()
+double PID_ATune_GetKd()
 {
 	return controlType==1? 0.075 * Ku * Pu : 0;  //Kd = Kc * Td
 }
 
-void SetOutputStep(float Step)
+void SetOutputStep(double Step)
 {
 	oStep = Step;
 }
 
-float GetOutputStep()
+double GetOutputStep()
 {
 	return oStep;
 }
@@ -159,12 +159,12 @@ int GetControlType()
 	return controlType;
 }
 
-void SetNoiseBand(float Band)
+void SetNoiseBand(double Band)
 {
 	noiseBand = Band;
 }
 
-float GetNoiseBand()
+double GetNoiseBand()
 {
 	return noiseBand;
 }
