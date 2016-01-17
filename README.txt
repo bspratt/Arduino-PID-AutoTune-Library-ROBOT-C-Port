@@ -35,3 +35,9 @@
 		encounter any issues please contact me, or post to the diy-pid-control
 		google group.
  
+
+
+ * Adapted for VEX ROBOT-C by Brian Pratt <brianstephenspratt@gmail.com>
+ * Assumes that we're controlling RPM using a quad encoder
+ * N.B. could be further simplified but left a lot alone for ease of 
+ * tracking any developments in the Arduino code
