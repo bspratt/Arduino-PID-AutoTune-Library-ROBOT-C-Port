@@ -1,4 +1,4 @@
-THIS IS NOT THE OFFICIAL CODE!!! THIS IS A PORT TO ROBOT-C FOR VEX CORTEX - SEE BELOW
+THIS IS NOT THE OFFICIAL CODE!!! THIS IS A PORT TO ROBOTC FOR VEX CORTEX - SEE BELOW
 
 
 /**********************************************************************************************
@@ -40,7 +40,7 @@ THIS IS NOT THE OFFICIAL CODE!!! THIS IS A PORT TO ROBOT-C FOR VEX CORTEX - SEE 
  
 
 
- * Adapted for VEX ROBOT-C by Brian Pratt <brianstephenspratt@gmail.com>
+ * Adapted for VEX ROBOTC by Brian Pratt <brianstephenspratt@gmail.com>
  * Assumes that we're controlling rotation speed using a quad encoder
  * N.B. could be further simplified and warnings reduced (especially about doubles)
  * but I left a lot alone for ease of tracking any developments in the Arduino code

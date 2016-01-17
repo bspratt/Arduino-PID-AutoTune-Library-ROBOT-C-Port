@@ -1,8 +1,8 @@
-/* proof of concept exerciser for ROBOT-C port of Arduino PID auto tune library */
+/* proof of concept exerciser for ROBOTC port of Arduino PID auto tune library */
 
-#include <..\..\Arduino-PID-Library-ROBOT-C-Port\PID_v1.cpp> // ROBOT-C port of Arduino PID library
+#include <..\..\Arduino-PID-Library-ROBOTC-Port\PID_v1.cpp> // ROBOTC port of Arduino PID library
 
-#include <..\..\Arduino-PID-Library-ROBOT-C-Port\MyPIDSetup.cpp> // Tweak the contents of the include file to suit your hardware
+#include <..\..\Arduino-PID-Library-ROBOTC-Port\MyPIDSetup.cpp> // Tweak the contents of this include file to suit your hardware
 
 #include <PID_AutoTune_v0.cpp>
 
