@@ -5,7 +5,7 @@
 /// Motor Control setup.  Consider moving this function into
 /// an include file for easy use in development and competition code.
 ///
-#include <..\..\Arduino-PID-Library\PID_v1.cpp> // ROBOT-C port of Arduino PID library
+#include <..\..\Arduino-PID-Library-ROBOT-C-Port\PID_v1.cpp> // ROBOT-C port of Arduino PID library
 
 
 void MyPIDSetup()
